@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#132f35" />
+  <meta name="description" content="An atmospheric sailing adventure. Follow the wind, read the stars, and chart a passage to the Spice Lands." />
+  <title>Uncharted — A Seafarer's Tale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <link rel="stylesheet" href="/src/navigation.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Uncharted home"><span class="brand-mark" data-icon="compass"></span><span>UNCHARTED<small>A SEAFARER’S TALE</small></span></a>
+      <nav aria-label="Main navigation"><button class="nav-item active" id="voyage-tab"><span data-icon="helm"></span>The voyage</button><button class="nav-item" id="handbook-nav"><span data-icon="book"></span>Navigator’s handbook</button></nav>
+      <div class="header-end"><span class="live-dot"></span><span>Your first expedition</span><button class="icon-button" id="sound-button" title="Enable ocean sounds" aria-label="Enable ocean sounds"><span data-icon="sound-off"></span></button><button class="icon-button" id="settings-button" title="Game settings" aria-label="Game settings"><span data-icon="settings"></span></button></div>
+    </header>
+    <main>
+      <section class="voyage-heading"><div><div class="eyebrow"><span></span> THE AGE OF DISCOVERY · 1487</div><h1>Beyond the familiar.</h1><p>Every horizon hides a story. Yours is waiting to be charted.</p></div><div class="heading-meta"><span class="tiny-label">CAPTAIN’S LOG</span><strong id="day-label">Day 01 <span>·</span> 08:00</strong><span id="weather-label"><i></i> Fair skies, following winds</span></div></section>
+      <div class="game-layout">
+        <section class="chart-panel" aria-label="Interactive ocean map">
+          <div class="chart-top"><div><span class="live-dot"></span><strong>The Cape Route</strong><span class="chart-top-divider">/</span><span id="region-label">Atlantic Ocean</span></div><div class="chart-actions"><button id="atlas-button" class="small-button">World chart</button><button id="chart-mode" class="small-button"><span data-icon="stars"></span><span>Read the stars</span></button></div></div>
+          <div class="map-wrap" id="map-wrap">
+            <canvas id="ocean" tabindex="0" aria-label="Sailing map. Use A and D or arrow keys to steer, W and S to adjust sails, and Space to anchor. Click the sea to sail to a location."></canvas>
+            <div class="map-coordinates"><small>SHIP POSITION · LATITUDE / LONGITUDE</small><span id="coordinates">38° 18′ N · 10° 06′ W</span><small>GEOGRAPHIC CHART · NORTH UP</small></div>
+            <div class="map-compass" aria-label="North-up compass with live ship heading"><div class="compass-dial"><span class="compass-north">N</span><span class="compass-west">W</span><span class="compass-east">E</span><span class="compass-south">S</span><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="27" fill="none" stroke="#738a74"/><path d="M40 13v5m0 44v5M13 40h5m44 0h5M21 21l4 4m30 30 4 4M21 59l4-4m30-30 4-4" stroke="#91a18a"/><g id="compass-needle"><path d="M40 18 48 47 40 43 32 47Z" fill="#f0c878"/><path d="M40 61 40 43 32 47Z" fill="#8ca28b"/></g><circle cx="40" cy="40" r="3" fill="#fff3ce"/></svg></div><strong id="compass-heading">180° S</strong><small>SHIP HEADING</small></div>
+            <div class="map-intro" id="map-intro"><div><p>Click to sail · <kbd>A</kbd> <kbd>D</kbd> to steer · <kbd>H</kbd> for help</p></div><button id="dismiss-intro" aria-label="Hide sailing guide" title="Hide guide">×</button></div>
+            <div class="celestial-info" id="celestial-info" hidden><span data-icon="stars"></span><div><strong id="star-title">Polaris · the North Star</strong><p id="star-altitude">Altitude 38° above the northern horizon</p><small id="star-guide">Its height gives your approximate northern latitude.</small></div><button id="dismiss-star-guide" aria-label="Hide star guide" title="Hide guide">×</button></div>
+            <div id="discovery-toast" class="discovery-toast" role="status" aria-live="polite"></div>
+            <div class="map-bottom-left"><span class="map-scale"><i></i><span id="scale-label">200 leagues</span></span><span class="map-hint"><span data-icon="mouse"></span> Click to sail · Drag to pan · Scroll to zoom</span></div>
+            <a class="map-credit" href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Coastlines: Natural Earth · 1:10m</a>
+            <div class="map-tools"><button id="zoom-in" aria-label="Zoom in" title="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out" title="Zoom out">−</button><span></span><button id="recenter" aria-label="Follow your ship" title="Follow your ship"><span data-icon="locate"></span></button></div>
+          </div>
+          <div class="ship-dashboard"><div class="ship-identity"><div class="ship-emblem" data-icon="ship"></div><div><small>YOUR VESSEL</small><strong>The Wanderer</strong><span>A nimble lateen-rigged caravel</span></div></div><div class="instrument"><small>SPEED</small><strong><span id="speed">0.0</span> <em>kn</em></strong><span id="sailing-state">Catching the wind</span></div><div class="instrument"><small>HEADING</small><strong id="heading">090° <em>E</em></strong><span id="course-state">Free sailing</span></div><div class="instrument wind-instrument"><small>WIND <span id="wind-arrow">↗</span></small><strong><span id="wind-speed">12</span> <em>kn</em></strong><span id="wind-label">From the southwest</span></div><button class="anchor-button" id="anchor-button"><span data-icon="anchor"></span><span>Drop anchor</span></button></div>
+        </section>
+        <aside class="sidebar">
+          <section class="mission-card"><div class="card-eyebrow"><span data-icon="flag"></span> YOUR EXPEDITION <span class="chapter">01 / 01</span></div><h2>A passage to<br>the Spice Lands</h2><p>From Lisbon, round Africa’s Cape and cross the Indian Ocean to the Moluccas.</p><div class="mission-progress"><div><span>Chart the unknown</span><strong id="explored-percent">0%</strong></div><div class="progress-track"><i id="explored-bar"></i></div></div><ul class="objectives"><li id="objective-depart"><span class="objective-check"></span>Leave the port of Lisbon</li><li id="objective-treasure"><span class="objective-check"></span>Uncover a lost treasure</li><li id="objective-spice"><span class="objective-check"></span>Reach the Banda Islands</li></ul><div class="mission-foot"><span data-icon="compass"></span><span>South around Africa. Then east.</span><span>↘</span></div></section>
+          <section class="journal-card"><div class="section-title"><h3>Voyage journal</h3><span class="count-badge" id="journal-count">01</span></div><div id="journal-entries"><article class="journal-entry"><span class="journal-dot"></span><small>DAY 01 · OAKHAVEN</small><h4>A new beginning</h4><p>A borrowed ship, a weathered chart, and a world waiting beyond the harbor.</p></article></div><button class="text-button" id="journal-button">Open captain’s log <span>↗</span></button></section>
+          <button class="handbook-card" id="handbook-card"><span class="book-illustration" data-icon="book"></span><span><small>THE NAVIGATOR’S HANDBOOK</small><strong>Let nature be your compass.</strong><span>Learn to read wind, stars & sea <b>↗</b></span></span></button>
+        </aside>
+      </div>
+      <footer class="voyage-footer"><div class="voyage-stats"><span><i data-icon="route"></i><strong id="distance">0.0</strong> leagues sailed</span><span><i data-icon="gem"></i><strong id="treasures">0 / 4</strong> treasures found</span><span><i data-icon="island"></i><strong id="islands">1 / 7</strong> lands discovered</span></div><span class="save-state"><i></i><span id="save-label">Your voyage is saved as you sail</span></span></footer>
+      <div class="controls-footer"><span><kbd>A</kbd><kbd>D</kbd> Steer</span><span><kbd>W</kbd><kbd>S</kbd> Adjust sail <b id="sail-percent">100%</b></span><span><kbd>SPACE</kbd> Anchor</span><span><kbd>H</kbd> Handbook</span><p>“The sea, once it casts its spell, holds one in its net of wonder forever.”</p></div>
+    </main>
+    <dialog id="handbook-dialog"><div class="modal-heading"><div><div class="eyebrow">KNOWLEDGE FOR THE OPEN SEA</div><h2>The navigator’s handbook</h2></div><button class="close-dialog" aria-label="Close handbook">×</button></div><div class="handbook-tabs" role="tablist"><button class="selected" data-page="sailing" role="tab">Wind & sail</button><button data-page="stars" role="tab">The night sky</button><button data-page="signs" role="tab">Signs of land</button></div><div id="handbook-content"></div><div class="modal-foot"><span data-icon="compass"></span> A good navigator observes before they act.<button class="primary-button close-handbook">Return to sea →</button></div></dialog>
+    <dialog id="journal-dialog"><div class="modal-heading"><div><div class="eyebrow">ABOARD THE WANDERER</div><h2>The captain’s log</h2></div><button class="close-dialog" aria-label="Close journal">×</button></div><div id="full-journal"></div><div class="modal-foot">Every discovery becomes part of your story.</div></dialog>
+    <dialog id="settings-dialog"><div class="modal-heading"><div><div class="eyebrow">MAKE YOURSELF AT HOME</div><h2>Voyage settings</h2></div><button class="close-dialog" aria-label="Close settings">×</button></div><div class="settings-body"><label>Ocean ambience <input type="checkbox" id="sound-setting"></label><label>Reduced motion <input type="checkbox" id="motion-setting"></label><p>Your expedition is automatically saved in this browser. Opening a handbook or menu pauses the voyage.</p><button class="danger-button" id="reset-button">Start a new expedition</button><div id="reset-confirm" hidden><p>Leave this voyage behind and begin again?</p><button class="primary-button" id="confirm-reset">Yes, set sail anew</button></div></div></dialog>
+    <dialog id="victory-dialog"><div class="victory-art">✧</div><div class="eyebrow">A NEW WORLD, CONNECTED</div><h2>The scent of cloves.<br>The promise of a new dawn.</h2><p>You found a passage to the Spice Lands. Your chart will guide generations of sailors across these once-unknown waters.</p><div id="victory-stats"></div><button class="primary-button" id="continue-button">There’s still more to discover →</button></dialog>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.chart-actions{display:flex;gap:7px}
+.map-coordinates{top:18px;left:18px;gap:8px;padding:13px 16px;border:1px solid #d6dcb87a;border-radius:8px;background:#153d38f5;box-shadow:0 4px 18px #16352f35;color:#fff3ce;text-shadow:none;z-index:2;font-size:15px;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.map-coordinates small{font-size:7px;letter-spacing:1.3px;color:#cfdbc0;opacity:1;font-weight:500}
+.map-compass{top:18px;right:18px;width:104px;height:137px;padding:7px;background:#153d38f5;border:1px solid #d6dcb87a;border-radius:10px;box-shadow:0 4px 18px #16352f35;color:#f5ebce;opacity:1;z-index:2;display:flex;flex-direction:column;align-items:center}
+.compass-dial{position:relative;width:88px;height:88px;flex:none}
+.compass-dial svg{position:absolute;inset:4px;width:80px;height:80px}
+.compass-dial>span{position:absolute;font-size:11px;font-weight:700;line-height:12px}
+.compass-dial .compass-north{top:0;left:39px;color:#f4cc7c}
+.compass-dial .compass-south{bottom:0;left:40px}
+.compass-dial .compass-west{top:38px;left:0}
+.compass-dial .compass-east{top:38px;right:0}
+#compass-needle{transform-origin:40px 40px;transition:transform .2s linear}
+.map-compass strong{font-size:14px;font-weight:600;margin-top:5px;letter-spacing:1px;font-variant-numeric:tabular-nums}
+.map-compass>small{font-size:6px;letter-spacing:1.2px;color:#cbd8b8;margin-top:4px}
+.map-intro{top:115px;max-width:calc(100% - 160px)}
+.celestial-info{top:170px;max-width:calc(100% - 45px)}
+.map-credit{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);font-size:7px;white-space:nowrap;color:#eef0d9;background:#173d35d9;padding:3px 7px;border-radius:3px}
+.map-bottom-left{bottom:30px;background:#173d35d9;border-radius:5px;padding:8px 10px;color:#f2f0d8}
+@media(max-width:1000px){.map-coordinates{font-size:12px;padding:12px;max-width:calc(100% - 142px)}.map-coordinates small{font-size:6px;letter-spacing:.7px}.map-compass{width:94px;height:129px}.compass-dial{transform:scale(.9);margin:-4px}.map-intro{top:164px;max-width:calc(100% - 36px)}.celestial-info{top:164px}.chart-top>div{gap:5px}.chart-actions{gap:5px}.small-button{padding:6px}.map-coordinates #coordinates{line-height:1.5}}
+@media(max-width:700px){.map-coordinates{left:12px;top:14px;max-width:calc(100% - 119px);font-size:11px;padding:10px;gap:6px}.map-coordinates small{font-size:5.5px;letter-spacing:.5px}.map-compass{right:12px;top:14px;width:85px;height:121px;padding:4px}.compass-dial{transform:scale(.83);margin:-6px}.map-compass strong{font-size:12px}.map-compass>small{font-size:5.5px}.map-intro{top:151px;left:12px;max-width:calc(100% - 24px)}.celestial-info{top:151px}.chart-top strong{font-size:9px}.chart-actions .small-button{font-size:7px;padding:6px 5px}.chart-actions .small-button svg{display:none}.map-bottom-left{gap:10px;padding:6px 8px;left:12px}.map-credit{font-size:6px}.map-hint{max-width:120px}}
+.map-wrap .map-intro{top:auto;bottom:82px;left:12px;max-width:calc(100% - 82px);padding:6px 8px 6px 11px;gap:8px;border-radius:6px;pointer-events:none}
+.map-wrap .map-intro p{margin:0;font-size:9px;line-height:1.6;color:#e2e8d5}
+.map-wrap .map-intro>button,.celestial-info>button{pointer-events:auto;flex:none;align-self:center;display:grid;place-items:center;width:28px;height:28px;margin:0;padding:0;border:1px solid #bbcfaa80;border-radius:5px;background:#ffffff12;color:#fff3ce;font-size:20px;line-height:1}
+.map-wrap .celestial-info{top:auto;bottom:82px;left:12px;max-width:min(370px,calc(100% - 82px));padding:10px;gap:8px}
+.map-wrap .celestial-info strong{font-size:13px}
+.map-wrap .celestial-info p{font-size:9px;line-height:1.5;margin:5px 0}
+.map-wrap .celestial-info small{font-size:8px;line-height:1.5;display:block}
