@@ -1,4 +1,4 @@
-# Uncharted — A Seafarer’s Tale
+# Kembara: Menggapai Kegemilangan
 
 A browser sailing adventure on real geographic coastlines. Chart a passage from Lisbon around Africa to the Banda Islands in the Moluccas, recover four lost treasures, and learn historical navigation along the way.
 

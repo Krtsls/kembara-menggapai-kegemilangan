@@ -1,4 +1,4 @@
--- Uncharted Waters cloud saves
+-- Kembara: Menggapai Kegemilangan cloud saves
 -- Run this in Supabase Dashboard > SQL Editor
 
 create table if not exists public.voyages (
